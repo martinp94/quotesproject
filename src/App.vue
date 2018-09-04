@@ -1,6 +1,10 @@
 <template>
     <div class="container">
-    
+    	<div class="row">
+    		<div class="col-xs-12">
+    			<app-header :quotesCounter="quotesCounter"></app-header>
+    		</div>
+    	</div>
     </div>
 </template>
 
@@ -14,7 +18,7 @@
     export default {
         data() {
         	return {
-        		
+        		quotesCounter: 0
         	}
         },
         components: {
