@@ -3,7 +3,8 @@
     	<app-header :quotesCount="quotes.length"></app-header>
     	<app-add-quotes @newQuote="newQuote"></app-add-quotes>
 
-		<app-quotes-list :quotes="quotes"></app-quotes-list>
+		<app-quotes-list :quotes="quotes"
+						 @quoteDeleted="deleteQuote"></app-quotes-list>
 
 		<br>
 
@@ -41,6 +42,11 @@
         	newQuote(quote) {
         		if(this.quotes.length < this.quotesMax)
         			this.quotes.push(quote);
+        		else
+        			alert('Please delete quotes first!');
+        	},
+        	deleteQuote(index) {
+        		this.quotes.splice(index, 1);
         	}
         }
     }
