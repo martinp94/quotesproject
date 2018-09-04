@@ -1,10 +1,19 @@
 <template>
     <div class="container">
-    	<div class="row">
-    		<div class="col-xs-12">
-    			<app-header :quotesCounter="quotesCounter"></app-header>
-    		</div>
-    	</div>
+    	<app-header :quotesCount="quotes.length"></app-header>
+    	<app-add-quotes @newQuote="newQuote"></app-add-quotes>
+
+		<app-quotes-list :quotes="quotes"></app-quotes-list>
+
+		<br>
+
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<div class="alert alert-info">
+					Info: Click on a Quote to Delete it!
+				</div>
+			</div>
+		</div>
     </div>
 </template>
 
@@ -18,7 +27,8 @@
     export default {
         data() {
         	return {
-        		quotesCounter: 0
+        		quotesMax: 10,
+        		quotes: []
         	}
         },
         components: {
@@ -26,6 +36,12 @@
         	appAddQuotes: AddQuotes,
         	appQuotesList: QuotesList,
         	appFooter: Footer
+        },
+        methods: {
+        	newQuote(quote) {
+        		if(this.quotes.length < this.quotesMax)
+        			this.quotes.push(quote);
+        	}
         }
     }
 </script>
