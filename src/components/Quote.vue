@@ -15,11 +15,16 @@
 </script>
 
 <style scoped>
+
+    @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+
     .panel {
         margin: 1em;
+        overflow: auto;
+        max-height: 230px;
     }
     .panel-body {
-        font-family: Arizonia, sans-serif;
+        font-family: 'Indie Flower', cursive;
         cursor: pointer;
     }
 
